@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ArticleVente extends Model
 {   
@@ -12,11 +13,13 @@ class ArticleVente extends Model
     public $timestamps=false;
 
     use HasFactory;
+    use SoftDeletes;
+
 
     public static function boot(){
         parent::boot();
         static::creating(function($article){
-            $confections=$article->confection;
+            $confections=$article->getAttribute('confection');
             if(is_array($confections)){
               $article->confections()->attach($confections);
             }

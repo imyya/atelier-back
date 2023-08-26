@@ -16,7 +16,8 @@ class VenteConfectionResource extends JsonResource
     {
         //return parent::toArray($request);
         return[
-            
+            'article_confec'=>ArticleResource::collection($this->whenLoaded('confections')),
+            'quantite'=>$this->quantite
         ];
     }
 }

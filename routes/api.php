@@ -38,8 +38,8 @@ Route::delete('/articles/delete/{id}',[ArticleController::class,'delete']);
 Route::put('/articles/{id}',[ArticleController::class,'update']);
 Route::get('/articlesvente',[ArticleVenteController::class,'index']);
 Route::post('/articlesvente/store',[ArticleVenteController::class,'store']);
-Route::delete('/articlesventes/{id}',[ArticleVente::class,'delete']);
-Route::update('/articlesventes/{id}',[ArticleVente::class,'update']);
+Route::delete('/articlesvente/{id}',[ArticleVenteController::class,'delete']);
+Route::put('/articlesvente/{id}',[ArticleVenteController::class,'update']);
 
 
 

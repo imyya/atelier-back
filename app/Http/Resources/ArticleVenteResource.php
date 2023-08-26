@@ -24,14 +24,23 @@ class ArticleVenteResource extends JsonResource
             'stock' => $this->stock,
             'categorie_id' => $this->categorie_id,
             'ref' => $this->ref,
-            'image' => $this->image,
-            'confection' => $this->confections->map(function ($confection) {
+
+            'confections' => $this->confections->map(function ($confection) {
                 return [
-                    'id' => $confection->article_confection->id,
-                    'libelle' => $confection->article_confection->libelle,
-                    'quantite' => $confection->quantite,
+                    'id' => $confection->id,
+                     'libelle' => $confection->libelle,
+                    'quantite' => $confection->pivot->quantite,
                 ];
             }),
+
+            //'image' => $this->image,
+            // 'confection' => $this->confections->map(function ($confection) {
+            //     return [
+            //         'id' => $confection->article_confection->id,
+            //         'libelle' => $confection->article_confection->libelle,
+            //         'quantite' => $confection->quantite,
+            //     ];
+            // }),
         ];
 
     }
